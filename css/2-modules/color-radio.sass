@@ -1,0 +1,39 @@
+.tokens
+  input[type=radio]
+    display: none
+
+  label.colors
+    display: inline-block
+    cursor: pointer
+    min-width: 30px
+    min-height: 30px
+    height: 100px
+    width: 100px
+    border-radius: 100%
+    margin-right: 15px
+    line-height: 100px
+    text-align: center
+
+  @each $color, $hexcolor in $token-colors
+    label.t-#{$color}
+      background: $hexcolor
+      border: 5px solid $hexcolor
+    label.t-#{$color}:hover
+      background: darken($hexcolor, 10%)
+      border-color: darken($hexcolor, 10%)
+    input[type=radio]:checked + label.t-#{$color}
+      border-color: darken($hexcolor, 20%)
+      transition: 0.1s ease-in
+    label.colors:active
+      background: $base-background-color
+      color: $base-font-color
+      transition: 0.2s ease-out
+
+  label.t-navy, label.t-blackt
+    color: $c-white
+  input[type=radio]:checked + label.t-navy
+    border-color: lighten(map-get($token-colors, navy), 30%)
+  input[type=radio]:checked + label.t-blackt
+    border-color: lighten(map-get($token-colors, blackt), 30%)
+
+

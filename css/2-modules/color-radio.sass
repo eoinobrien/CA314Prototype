@@ -19,11 +19,15 @@
       background: $hexcolor
       border: 5px solid $hexcolor
     label.t-#{$color}:hover
-      background: darken($hexcolor, 10%)
+
       border-color: darken($hexcolor, 10%)
     input[type=radio]:checked + label.t-#{$color}
       border-color: darken($hexcolor, 20%)
       transition: 0.1s ease-in
+    input[type=radio]:disabled + label.t-#{$color}
+      background: $dark-gray
+      border-color: $dark-gray
+      color: $hexcolor
     label.colors:active
       background: $base-background-color
       color: $base-font-color
